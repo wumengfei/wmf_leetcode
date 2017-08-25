@@ -1,5 +1,6 @@
 package binaryTree;
 
+import java.util.LinkedList;
 import java.util.Stack;
 
 public class traversing_bt {
@@ -89,6 +90,27 @@ public class traversing_bt {
 				System.out.println(s2.pop().value + " ");
 			}
 		}
+	}
+
+	// 层序，非递归
+	public void levelUnRecur(Node head){
+		if (head == null){
+			return;
+		}
+
+		LinkedList<Node> dq = new LinkedList();
+		dq.addLast(head);
+		while (!dq.isEmpty()){
+			Node cur = dq.pollFirst();
+			System.out.print(cur.value);
+			if (cur.left != null){
+				dq.addLast(cur.left);
+			}
+			if (cur.right != null){
+				dq.addLast(cur.right);
+			}
+		}
+		System.out.println();
 	}
 }
 
